@@ -1,17 +1,13 @@
 require('dotenv').config();
 const express = require('express');
-const connectDB = require('./config/db');
+require('./config/db');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const app = express();
 
-// Connect Database
-connectDB();
-
 // Init Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json())
 
 // Define Routes
 app.use('/api/chatbot', require('./routes/chatbot'));
