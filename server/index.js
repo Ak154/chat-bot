@@ -8,10 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-// Define Routes
 app.use('/api/chatbot', require('./routes/chatbot'));
 
-// Knowledge Base Admin Routes
 app.use('/api/knowledge', require('./routes/knowledge'));
 
 const PORT = process.env.PORT || 5000;
