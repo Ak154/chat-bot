@@ -15,7 +15,7 @@ exports.KnowledgeReq = async (req, res) => {
     res.json(newKnowledge);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Server Error");
+    res.status(500).send("Internal Server Error");
   }
 };
 
@@ -25,6 +25,6 @@ exports.konwledgeData = async (req, res) => {
     res.json(knowledge);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Server Error");
+    res.status(500).send("Internal Server Error");
   }
 };
