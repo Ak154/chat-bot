@@ -60,3 +60,26 @@ exports.userLogin = async (req, res) => {
       .send({ message: "Internal server error", success: false, error });
   }
 };
+
+exports.userInfo = async (req, res) => {
+  try {
+    let userData = await User.findOne({ username: req.body.username });
+
+    if (!userData) {
+      return res
+        .status(401)
+        .send({ message: "User doesn't exist", success: false });
+    }
+    userData.password = undefined;
+
+    res.status(200).send({
+      message: "Your profile fetched successfully",
+      success: true,
+      data: userData,
+    });
+  } catch (error) {
+    return res
+      .status(500)
+      .send({ message: "Internal server error", succes: false, error });
+  }
+};
